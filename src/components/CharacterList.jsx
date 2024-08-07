@@ -1,3 +1,5 @@
+import { EyeIcon } from "@heroicons/react/24/outline";
+
 function CharacterList({ characters }) {
   return (
     <div className="character-list">
@@ -24,6 +26,9 @@ function Character({ item }) {
         ></span>
         <span> {item.status}</span>
         <span> - {item.species}</span>
+      </div>
+      <div className="icon red">
+        <EyeIcon />
       </div>
     </div>
   );

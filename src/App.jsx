@@ -2,7 +2,7 @@ import { allCharacters } from "../data/data";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import CharacterList from "./components/CharacterList";
-import CharacterItem from "./components/CharacterItem";
+import CharacterDetail from "./components/CharacterDetail";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <div className="main">
         <CharacterList characters={allCharacters} />
-        <CharacterItem />
+        <CharacterDetail />
       </div>
     </div>
   );
