@@ -1,15 +1,17 @@
-import { allCharacters } from "../data/data";
+import { allCharacters } from "/data/data.js";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import CharacterList from "./components/CharacterList";
 import CharacterDetail from "./components/CharacterDetail";
+import { useState } from "react";
 
 function App() {
+  const [characters, setCharacters] = useState(allCharacters);
   return (
     <div className="app">
-      <Navbar />
+      <Navbar numOfResault={characters.length} />
       <div className="main">
-        <CharacterList characters={allCharacters} />
+        <CharacterList characters={characters} />
         <CharacterDetail />
       </div>
     </div>
