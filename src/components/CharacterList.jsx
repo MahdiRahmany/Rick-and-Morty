@@ -1,6 +1,6 @@
 import { EyeIcon } from "@heroicons/react/24/outline";
-import { allCharacters } from "/data/data.js";
-import { useState } from "react";
+// import { allCharacters } from "../../data/data.js";
+// import { useState } from "react";
 
 function CharacterList({ characters }) {
   return (

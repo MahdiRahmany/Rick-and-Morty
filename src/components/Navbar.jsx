@@ -21,8 +21,8 @@ function Search() {
   return <input type="text" className="text-field" placeholder="search ..." />;
 }
 
-export function SearchResult({numOfResult}) {
-  return <div className="navbar__result">Found {numOfResult} Character</div>;
+export function SearchResult({ numOfResult }) {
+  return <div className="navbar__result">Found {numOfResult} characters</div>;
 }
 
 function Favorites() {
