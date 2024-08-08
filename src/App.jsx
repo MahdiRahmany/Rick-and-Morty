@@ -4,6 +4,7 @@ import Navbar, { SearchResult } from "./components/Navbar";
 import CharacterList from "./components/CharacterList";
 import CharacterDetail from "./components/CharacterDetail";
 import { useState, useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -11,17 +12,24 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      setIsLoading(true);
-      const res = await fetch("https://rickandmortyapi.com/api/character");
-      const data = await res.json();
-      setCharacters(data.results.slice(0, 5));
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        const res = await fetch("https://rickandmortyapi.com/api/character");
+        if (!res.ok) throw new Error("something went wrong");
+        const data = await res.json();
+        setCharacters(data.results.slice(0, 5));
+      } catch (error) {
+        toast.error(error.message);
+      } finally {
+        setIsLoading(false);
+      }
     }
     fetchData();
   }, []);
 
   return (
     <div className="app">
+      <Toaster />
       <Navbar>
         <SearchResult numOfResult={characters.length} />
       </Navbar>
