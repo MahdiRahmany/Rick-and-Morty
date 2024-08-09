@@ -37,9 +37,8 @@ function App() {
   }, [query]);
 
   const handleSelectCharacter = (id) => {
-    setSelectedId(id);
+    setSelectedId((prevId) => (prevId === id ? null : id));
   };
-
 
   return (
     <div className="app">
@@ -52,6 +51,7 @@ function App() {
       <div className="main">
         <Main>
           <CharacterList
+            selectedId={selectedId}
             characters={characters}
             isLoading={isLoading}
             onSelectCharacter={handleSelectCharacter}
