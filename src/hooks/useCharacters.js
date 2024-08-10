@@ -36,7 +36,7 @@ export default function useCharacters(url,query) {
     return () => {
       controller.abort();
     };
-  }, [query]);
+  }, [url, query]);
 
   return { isLoading, characters };
 }
